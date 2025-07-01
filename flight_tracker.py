@@ -26,7 +26,7 @@ ARSIV_CSV = 'onceki_sonuclar.csv'
 # UYARI: Güvenliğiniz için buraya gerçek şifrenizi DEĞİL, Google'dan alacağınız 16 haneli "Uygulama Şifresini" girin.
 GONDEREN_EPOSTA = "denemecan33@gmail.com"
 ALICI_EPOSTA = ["asrnsevim@hotmail.com", "bcaliskan4691@gmail.com"] # Raporu alacak kişisel e-posta adresleri
-EPOSTA_SIFRESI = "wgda jdru ylqh ujst"  # Robot mail için oluşturulan 16 haneli Uygulama Şifresi
+EPOSTA_SIFRESI = os.getenv('MAIL_SIFRESI')  # Robot mail için oluşturulan 16 haneli Uygulama Şifresi
 
 SMTP_SUNUCU = "smtp.gmail.com"
 SMTP_PORT = 587
