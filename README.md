@@ -1,6 +1,6 @@
 # Flight Price Tracker & Notifier
 
-![Flight Price Tracker Automation](https://github.com/KULLANICI_ADINIZ/REPO_ADINIZ/actions/workflows/flight-tracker.yml/badge.svg)
+![Flight Price Tracker Automation](https://github.com/asrinsevim/PegasusFlightTracker/actions/workflows/flight-tracker.yml/badge.svg)
 
 This project automates the process of tracking round-trip flight prices for a specified route on Pegasus Airlines. It scrapes the latest prices, compares them against a historical archive of the best deals, identifies new deals and price drops, and sends a detailed HTML email report with the findings.
 
