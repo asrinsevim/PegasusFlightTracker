@@ -25,38 +25,12 @@ The entire process is designed to run automatically every 12 hours using GitHub 
 The automation follows a simple, robust pipeline:
 
 1.  **Scheduled Trigger:** The GitHub Actions workflow is triggered automatically on a schedule (e.g., every 12 hours).
-2.  **Scrape Data:** The Python script launches a Playwright instance, navigates to the airline's website, and scrapes departure and return prices for all available months. The data is saved into `departure_prices.csv` and `return_prices.csv`.
-3.  **Analyze & Compare:** The script then processes these CSV files, calculates the total price for all valid round-trip combinations, and finds the top 10 cheapest deals for each month. This new list is compared against the data in `previous_results.csv`.
+2.  **Scrape Data:** The Python script launches a Playwright instance, navigates to the airline's website, and scrapes departure and return prices for all available months. The data is saved into `gidis_fiyatlari.csv` and `donus_fiyatlari.csv`.
+3.  **Analyze & Compare:** The script then processes these CSV files, calculates the total price for all valid round-trip combinations, and finds the top 10 cheapest deals for each month. This new list is compared against the data in `onceki_sonuclar.csv`.
 4.  **Generate Report:** Based on the comparison, a comprehensive report is generated, marking the status of each flight deal.
 5.  **Notify:** If any new deals or price drops are found, the script sends an HTML email to the specified recipients.
-6.  **Archive & Commit:** Finally, the script overwrites the `previous_results.csv` file with the latest top 10 deals. The GitHub Actions workflow then automatically commits this updated archive file back to the repository, ensuring the next run compares against the most recent data.
+6.  **Archive & Commit:** Finally, the script overwrites the `onceki_sonuclar.csv`(previous deals) file with the latest top 10 deals. The GitHub Actions workflow then automatically commits this updated archive file back to the repository, ensuring the next run compares against the most recent data.
 
-## Setup & Configuration
-
-To set up this project in a new repository, follow these steps:
-
-**1. Add Project Files:**
-   Ensure the following files are present in your GitHub repository:
-   -   `ucus_otomasyon.py`: The main Python script that contains all the logic.
-   -   `requirements.txt`: A file listing the necessary Python libraries.
-   -   `onceki_sonuclar.csv`: The initial archive file to compare against.
-
-**2. Configure GitHub Secret for Email Password:**
-   For security, the email password is not stored in the code.
-   -   In your GitHub repository, go to `Settings` > `Secrets and variables` > `Actions`.
-   -   Click `New repository secret`.
-   -   **Name:** `MAIL_SIFRESI`
-   -   **Secret:** Paste your 16-digit App Password from Google here.
-   -   Click `Add secret`.
-
-**3. Configure User Settings in `ucus_otomasyon.py`:**
-   Open the `ucus_otomasyon.py` file and modify the variables in the `--- USER SETTINGS ---` section at the top of the file to match your needs:
-   -   `DEPARTURE_CITY`, `ARRIVAL_CITY`, etc.
-   -   `SENDER_EMAIL`, `RECIPIENT_EMAILS`.
-
-**4. Create the GitHub Actions Workflow:**
-   -   Create a directory path `.github/workflows/` in your repository.
-   -   Inside this path, create a file named `flight-tracker.yml` with the provided YAML content. This file defines the entire automation schedule and steps.
 
 ## Usage
 
