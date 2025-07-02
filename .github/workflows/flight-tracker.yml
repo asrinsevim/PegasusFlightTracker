@@ -41,7 +41,7 @@ jobs:
       # The email password is securely passed as an environment variable from GitHub Secrets.
       - name: Run Flight Scraper and Analyzer
         env:
-          EMAIL_PASSWORD: ${{ secrets.MAIL_SIFRESI }}
+          MAIL_SIFRESI: ${{ secrets.MAIL_SIFRESI }}
         run: python flight_automation.py 
 
       # 6. Step: Commits the updated archive file back to the repository.
