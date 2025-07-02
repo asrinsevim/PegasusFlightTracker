@@ -108,20 +108,35 @@ async def run_scraper():
         try:
             print("Opening Pegasus website...")
             await page.goto("https://www.flypgs.com/")
-            try:
-                await page.get_by_role("button", name="Kabul Et").click(timeout=5000)
-                print("Cookies pop-up accepted.")
-            except Exception:
-                print("Cookies pop-up not found, continuing.")
+            # --- ROBUST POP-UP HANDLING ---
+            # Wait a moment for any pop-ups to appear
+            await page.wait_for_timeout(5000)
             
+            # Try to close any known pop-ups or overlays
+            cookie_button = page.get_by_role("button", name="Kabul Et")
+            if await cookie_button.is_visible():
+                print("Cookie pop-up found. Accepting...")
+                await cookie_button.click()
+            
+            # This is the overlay from your error log. We will click it if it exists.
+            overlay = page.locator("div.c-modal-overlay")
+            if await overlay.is_visible():
+                print("Modal overlay found. Attempting to click it to close.")
+                try:
+                    await overlay.click(timeout=5000)
+                except Exception:
+                    print("Could not click overlay, pressing Escape key as a fallback.")
+                    await page.keyboard.press("Escape")
+
             print("Entering flight details...")
-            await page.locator("#fromWhere").click()
+            # Use force click to bypass potential remaining overlays
+            await page.locator("#fromWhere").click(force=True, timeout=15000)
             await page.locator("#fromWhere").fill(DEPARTURE_CITY)
             await page.locator(f'.tstnm_fly_search_tab_1_departure_list_item[data-port-code="{DEPARTURE_PORT_CODE}"]').click()
-            await page.locator("#toWhere").click()
+            
+            await page.locator("#toWhere").click(force=True, timeout=15000)
             await page.locator("#toWhere").fill(ARRIVAL_CITY)
             await page.locator(f'.tstnm_fly_search_tab_1_arrival_list_item[data-port-code="{ARRIVAL_PORT_CODE}"]').click()
-            
             print("\n--- SCRAPING DEPARTURE PRICES ---")
             departure_data = await scrape_calendar_prices(page)
             if departure_data:
