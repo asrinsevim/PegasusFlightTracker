@@ -29,7 +29,7 @@ The automation follows a simple, robust pipeline:
 3.  **Analyze & Compare:** The script then processes these CSV files, calculates the total price for all valid round-trip combinations, and finds the top 10 cheapest deals for each month. This new list is compared against the data in `previous_results.csv`.
 4.  **Generate Report:** Based on the comparison, a comprehensive report is generated, marking the status of each flight deal.
 5.  **Notify:** If any new deals or price drops are found, the script sends an HTML email to the specified recipients.
-6.  **Archive & Commit:** Finally, the script overwrites the `onceki_sonuclar.csv`(previous deals) file with the latest top 10 deals. The GitHub Actions workflow then automatically commits this updated archive file back to the repository, ensuring the next run compares against the most recent data.
+6.  **Archive & Commit:** Finally, the script overwrites the `previous_results.csv` file with the latest top 10 deals. The GitHub Actions workflow then automatically commits this updated archive file back to the repository, ensuring the next run compares against the most recent data.
 
 
 ## Usage
