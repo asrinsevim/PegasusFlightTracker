@@ -41,16 +41,16 @@ jobs:
       # The email password is securely passed as an environment variable from GitHub Secrets.
       - name: Run Flight Scraper and Analyzer
         env:
-          MAIL_SIFRESI: ${{ secrets.MAIL_SIFRESI }}
-        run: python flight_tracker.py 
+          EMAIL_PASSWORD: ${{ secrets.MAIL_SIFRESI }}
+        run: python flight_automation.py 
 
       # 6. Step: Commits the updated archive file back to the repository.
       # This is CRITICAL for the next run to compare against the latest data.
       - name: Commit Updated Archive File
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'Automated Archive Update: onceki_sonuclar.csv'
-          file_pattern: 'onceki_sonuclar.csv hata_ekrani.png' 
+          commit_message: 'Automated Archive Update: previous_results.csv'
+          file_pattern: 'previous_results.csv error_screenshot.png' 
           commit_user_name: 'GitHub Actions Bot'
           commit_user_email: 'actions@github.com'
           commit_author: 'GitHub Actions Bot <actions@github.com>'
