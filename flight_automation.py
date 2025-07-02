@@ -28,7 +28,7 @@ SENDER_EMAIL = "denemecan33@gmail.com"
 RECIPIENT_EMAILS = ["asrnsevim@hotmail.com"]
 # The password is read securely from GitHub Actions Secrets.
 # It uses the provided password as a fallback if the secret is not found (for local testing).
-EMAIL_PASSWORD = "wgda jdru ylqh ujst"
+EMAIL_PASSWORD = os.getenv('MAIL_SIFRESI')
 
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
