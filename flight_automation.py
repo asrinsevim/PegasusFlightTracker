@@ -79,7 +79,7 @@ async def scrape_calendar_prices(page):
     print("\nStep 1: Scanning initially visible months...")
     try:
         await page.locator(".flatpickr-current-month").first.wait_for(timeout=DEFAULT_TIMEOUT)
-        await page.wait_for_timeout(1000)
+        await page.wait_for_timeout(3000)
         await process_visible_days()
     except Exception as e:
         print(f"An error occurred while scraping initial months: {e}")
