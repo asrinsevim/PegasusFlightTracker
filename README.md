@@ -4,7 +4,7 @@
 
 This project automates the process of tracking round-trip flight prices for a specified route on Pegasus Airlines. It scrapes the latest prices, compares them against a historical archive of the best deals, identifies new deals and price drops, and sends a detailed HTML email report with the findings.
 
-The entire process is designed to run automatically every 12 hours using GitHub Actions.
+The entire process is designed to run automatically every 24 hours using GitHub Actions.
 
 ## Key Features
 
