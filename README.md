@@ -24,7 +24,7 @@ The entire process is designed to run automatically every 24 hours using GitHub 
 
 The automation follows a simple, robust pipeline:
 
-1.  **Scheduled Trigger:** The GitHub Actions workflow is triggered automatically on a schedule (e.g., every 12 hours).
+1.  **Scheduled Trigger:** The GitHub Actions workflow is triggered automatically on a schedule (e.g., every 24 hours).
 2.  **Scrape Data:** The Python script launches a Playwright instance, navigates to the airline's website, and scrapes departure and return prices for all available months. The data is saved into `departure_prices.csv` and `return_prices.csv`.
 3.  **Analyze & Compare:** The script then processes these CSV files, calculates the total price for all valid round-trip combinations, and finds the top 10 cheapest deals for each month. This new list is compared against the data in `previous_results.csv`.
 4.  **Generate Report:** Based on the comparison, a comprehensive report is generated, marking the status of each flight deal.
@@ -35,7 +35,7 @@ The automation follows a simple, robust pipeline:
 ## Usage
 
 ### Automated Execution
-The primary way to use this project is to let the automation run. The workflow is scheduled to trigger automatically at 07:00 and 19:00 UTC (10:00 AM and 10:00 PM Turkey Time) as defined in `flight-tracker.yml`.
+The primary way to use this project is to let the automation run. The workflow is scheduled to trigger automatically at 19:00 UTC (10:00 AM and 10:00 PM Turkey Time) as defined in `flight-tracker.yml`.
 
 ### Manual Execution
 You can also trigger a run manually at any time:
