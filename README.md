@@ -17,7 +17,7 @@ The entire process is designed to run automatically every 24 hours using GitHub 
     -   `Price Increase`
     -   `Removed from Top 10`
 -   **Email Notifications:** Sends a well-formatted HTML email report that highlights new deals and price drops, and also includes the full list of the current top 10 deals for each month.
--   **Fully Automated:** The entire workflow is scheduled to run every 12 hours via GitHub Actions, requiring no manual intervention.
+-   **Fully Automated:** The entire workflow is scheduled to run every 24 hours via GitHub Actions, requiring no manual intervention.
 -   **Secure:** Manages the email password securely using GitHub Actions Secrets instead of hardcoding it into the script.
 
 ## How It Works
