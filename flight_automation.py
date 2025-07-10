@@ -15,7 +15,7 @@ DEPARTURE_CITY = "İstanbul Tümü"
 ARRIVAL_CITY = "Tiran"
 DEPARTURE_PORT_CODE = "IST_SAW"
 ARRIVAL_PORT_CODE = "TIA"
-TRIP_DURATIONS = [7, 8, 9]
+TRIP_DURATIONS = [6, 7, 8]
 
 # 2. File Names
 DEPARTURE_CSV_FILE = 'departure_prices.csv'
