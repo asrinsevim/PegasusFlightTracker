@@ -9,7 +9,7 @@ The entire process is designed to run automatically every 24 hours using GitHub 
 ## Key Features
 
 -   **Automated Scraping:** Uses Playwright to automatically navigate the website and scrape flight prices from the calendar view.
--   **Price Combination:** Calculates total prices for round-trip combinations based on predefined trip durations (e.g., 7, 8, or 9 days).
+-   **Price Combination:** Calculates total prices for round-trip combinations based on predefined trip durations (e.g., 6, 7, or 8 days).
 -   **Historical Comparison:** Compares the latest top 10 cheapest flights per month against the previously saved list to track changes.
 -   **Deal Detection:** Identifies and flags several statuses for flight deals:
     -   `PRICE DROP!`
